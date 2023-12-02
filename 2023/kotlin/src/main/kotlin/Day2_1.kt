@@ -1,11 +1,10 @@
-import utils.println
-import kotlin.math.ln
+import utils.*
 
-data class Cube(val color: Color, val count: Int)
+data class Cube(val count: Int, val color: Color)
 enum class Color {
-    red,
-    green,
-    blue
+    Red,
+    Green,
+    Blue
 }
 
 data class CubeSet(val cubes: List<Cube>) {
@@ -17,9 +16,9 @@ data class CubeSet(val cubes: List<Cube>) {
     fun isInvalid(): Boolean {
         return cubes.map {
             when (it.color) {
-                Color.red -> it.count > 12
-                Color.green -> it.count > 13
-                Color.blue -> it.count > 14
+                Color.Red -> it.count > 12
+                Color.Green -> it.count > 13
+                Color.Blue -> it.count > 14
             }
         }.any { it }
 
@@ -36,18 +35,16 @@ data object Day2_1 : Day<List<Game>>() {
 
     override val day: Int = 2
     override val part: Int = 1
-
     override fun parseFile(file: List<String>): List<Game> {
-        return file.mapIndexed { idx, line ->
-            Game(
-                cubeSets = line.substringAfter(":").split(";").map { game ->
-                    CubeSet(game.split(",").map { cube ->
-                        cube.trim().split(" ").let {
-                            Cube(Color.valueOf(it[1]), it[0].toInt())
-                        }
-                    })
-                }, id = idx + 1
-            )
+        return file.map { line ->
+            instanceFromRegex<Game>(
+                text = line,
+                regex = Regex(pattern = "Game ([0-9]*): (.*)")
+            ) {
+                regex(regex = Regex(pattern = "(.*?;|.+)")) {
+                    regex(Regex(pattern = "([0-9]*) (red|green|blue)")) forGroup 0
+                } forGroup 1
+            }
 
         }
     }
