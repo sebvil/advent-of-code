@@ -1,9 +1,9 @@
 import utils.*
 
-data object Day${DAY_NUM} : Day<List<Day${DAY_NUM}.Input>> {
+data object Day3 : Day<List<Day3.Input>> {
     data class Input(val foo: String) // TODO()
 
-    override val day: Int = ${DAY_NUM}
+    override val day: Int = 3
     override val part1TestInput: String = """
         TODO
     """.trimIndent()
@@ -20,7 +20,7 @@ data object Day${DAY_NUM} : Day<List<Day${DAY_NUM}.Input>> {
                 text = line,
                 regex = regex(Regex(pattern = "(.*)"))
                 {
-                   // TODO
+                    // TODO
                 })
         }
     }
@@ -30,7 +30,7 @@ data object Day${DAY_NUM} : Day<List<Day${DAY_NUM}.Input>> {
     }
 
     override fun part2(input: List<Input>): Number {
-        return 1 
+        return 1
     }
 
 }
