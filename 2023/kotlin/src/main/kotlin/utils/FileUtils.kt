@@ -1,6 +1,5 @@
 package utils
 
-import Day
 import kotlin.io.path.Path
 import kotlin.io.path.readLines
 
