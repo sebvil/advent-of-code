@@ -12,3 +12,5 @@ fun readInput(day: Int) = Path("/home/sebvil/dev/src/advent-of-code/2023/kotlin/
  * The cleaner shorthand for printing output.
  */
 fun Any?.println() = println(this)
+
+fun Any?.alsoPrint() = also { it.println() }
