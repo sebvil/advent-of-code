@@ -37,12 +37,19 @@ fun regex(regex: Regex, buildAction: RegexMatcher.Builder.() -> Unit = {}): Rege
     return RegexMatcher.Builder(regex).apply(buildAction).build()
 }
 
+
 @Suppress("UNCHECKED_CAST")
 fun <T : Any> instancesFromRegex(
     clazz: KClass<T>,
     text: String,
     regex: RegexMatcher,
 ): List<T> {
+    when (clazz) {
+        Int::class -> return listOf(text.toInt() as T)
+        String::class -> return regex.regex.findAll(text)
+            .flatMap { it.groupValues.subList(1, it.groupValues.size) }.map { it as T }.toList()
+        Boolean::class -> return listOf(text.toBoolean() as T)
+    }
     val constructor = clazz.primaryConstructor!!
     val typeTransform = { idx: Int, match: String ->
         val param = constructor.parameters[idx]
@@ -57,6 +64,7 @@ fun <T : Any> instancesFromRegex(
                     val listType = type.arguments.first().type!!.jvmErasure
                     instancesFromRegex(listType, match, regex.subMatchers[idx]!!)
                 }
+
                 type.hasAnnotation<RegexParsable>() -> {
                     instanceFromRegex(match, regex.subMatchers[idx]!!)
                 }
@@ -77,6 +85,7 @@ inline fun <reified T : Any> instanceFromRegex(
 ): T {
     return instancesFromRegex(T::class, text, regex).first()
 }
+
 inline fun <reified T : Any> instanceFromRegex(
     text: String,
     regex: Regex,
