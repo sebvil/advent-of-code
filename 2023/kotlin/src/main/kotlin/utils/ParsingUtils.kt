@@ -45,7 +45,12 @@ fun <T : Any> instancesFromRegex(
     regex: RegexMatcher,
 ): List<T> {
     when (clazz) {
-        Int::class -> return listOf(text.toInt() as T)
+        Int::class ->  return regex.regex.findAll(text)
+            .flatMap {
+                it.groupValues.subList(1, it.groupValues.size)
+            }.map {
+                it.toInt() as T
+            }.toList()
         String::class -> return regex.regex.findAll(text)
             .flatMap { it.groupValues.subList(1, it.groupValues.size) }.map { it as T }.toList()
         Boolean::class -> return listOf(text.toBoolean() as T)

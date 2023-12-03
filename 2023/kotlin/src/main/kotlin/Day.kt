@@ -25,7 +25,7 @@ sealed interface Day<Input> {
     fun checkPart2() {
         val result = part2(parseFile(part2TestInput.lines()))
         check(result == part2Expected) {
-            "Part 1 failed. Got $result, expected: $part2Expected"
+            "Part 2 failed. Got $result, expected: $part2Expected"
         }
     }
 
