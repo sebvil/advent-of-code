@@ -1,8 +1,10 @@
+package y23
+
 import utils.readInput
 
 sealed interface Day<Input> {
     private val input: Input
-        get() = parseFile(readInput(day))
+        get() = parseFile(readInput(23, day))
 
 
     val day: Int

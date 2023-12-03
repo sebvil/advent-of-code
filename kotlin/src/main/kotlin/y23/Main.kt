@@ -1,3 +1,5 @@
+package y23
+
 import utils.alsoPrint
 
 fun main() {

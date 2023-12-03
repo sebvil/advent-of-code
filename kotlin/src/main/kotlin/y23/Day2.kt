@@ -1,3 +1,5 @@
+package y23
+
 import utils.*
 
 data object Day2 : Day<List<Day2.Input>> {

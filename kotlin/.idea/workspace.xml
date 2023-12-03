@@ -5,39 +5,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="50ae47ec-4313-4a6b-948c-856b0d746315" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/file.template.settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/fileTemplates/Day.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/fileTemplates/Day.kt.child.0.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Day.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Day1.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Day2.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Day3.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/inputs/day1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/inputs/day2.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/inputs/day3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/utils/CollectionUtils.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/utils/Digits.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/utils/FileUtils.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/utils/ParsingUtils.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/utils/PrintUtils.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/utils/StringExtensions.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/utils/CollectionUtilsKtTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2023/kotlin/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2023/kotlin/.idea/file.template.settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2023/kotlin/.idea/fileTemplates/Day.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2023/kotlin/.idea/fileTemplates/Day.kt.child.0.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2023/kotlin/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2023/kotlin/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2023/kotlin/.idea/kotlinc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2023/kotlin/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2023/kotlin/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2023/kotlin/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2023/kotlin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../2023/kotlin/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2023/kotlin/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2023/kotlin/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2023/kotlin/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2023/kotlin/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2023/kotlin/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2023/kotlin/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2023/kotlin/settings.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2023/kotlin/src/main/kotlin/Day.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2023/kotlin/src/main/kotlin/Day1.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2023/kotlin/src/main/kotlin/Day2.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2023/kotlin/src/main/kotlin/Day3.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2023/kotlin/src/main/kotlin/Main.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2023/kotlin/src/main/kotlin/inputs/day1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2023/kotlin/src/main/kotlin/inputs/day2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2023/kotlin/src/main/kotlin/inputs/day3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2023/kotlin/src/main/kotlin/utils/CollectionUtils.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2023/kotlin/src/main/kotlin/utils/Digits.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2023/kotlin/src/main/kotlin/utils/FileUtils.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2023/kotlin/src/main/kotlin/utils/ParsingUtils.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2023/kotlin/src/main/kotlin/utils/PrintUtils.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2023/kotlin/src/main/kotlin/utils/StringExtensions.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2023/kotlin/src/test/kotlin/utils/CollectionUtilsKtTest.kt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +48,21 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -64,7 +79,7 @@
     <option name="SCHEME" value="Project" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
@@ -86,11 +101,10 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "android.gradle.sync.needed": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/sebvil/dev/src/advent-of-code/2023/kotlin/src/main/kotlin",
+    "last_opened_file_path": "/home/sebvil/dev/src/advent-of-code/kotlin",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
