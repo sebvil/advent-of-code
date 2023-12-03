@@ -15,6 +15,8 @@ dependencies {
     testImplementation(kotlin("test"))
     implementation(kotlin("reflect"))
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.2")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
+    testImplementation("com.google.truth:truth:1.1.4")
 }
 
 tasks.test {

@@ -77,42 +77,38 @@ data object Day3 : Day<List<Day3.Input>> {
             if (cell !is Cell.Number) {
                 return false
             }
-            val rows = ((row - 1)..(row + 1)).filter { it in input.indices }
-            val columns = ((column - 1)..(column + 1)).filter { it in input[0].row.indices }
-            rows.forEach Row@{ r ->
-                columns.forEach Column@{ c ->
-                    if (r == row && c == column) {
-                        return@Column
-                    }
-                    when (input[r].row[c]) {
-                        is Cell.Number -> {
-                            val isMaybeValid = visitedNumbers[Pair(r, c)]
-                            when (isMaybeValid) {
-                                true -> {
+
+            getAdjacentCells(input.map { it.row }, row, column).forEach { (r, c) ->
+                if (r == row && c == column) {
+                    return@forEach
+                }
+                when (input[r].row[c]) {
+                    is Cell.Number -> {
+                        val isMaybeValid = visitedNumbers[Pair(r, c)]
+                        when (isMaybeValid) {
+                            true -> {
+                                visitedNumbers[Pair(row, column)] = true
+                                return true
+                            }
+
+                            false -> Unit
+                            null -> {
+                                visitedNumbers[Pair(r, c)] = false
+                                val isNextValid = isValidNumber(r, c)
+                                if (isNextValid) {
                                     visitedNumbers[Pair(row, column)] = true
                                     return true
                                 }
-
-                                false -> Unit
-                                null -> {
-                                    visitedNumbers[Pair(r, c)] = false
-                                    val isNextValid = isValidNumber(r, c)
-                                    if (isNextValid) {
-                                        visitedNumbers[Pair(row, column)] = true
-                                        return true
-                                    }
-                                }
                             }
-
                         }
 
-                        Cell.Period -> Unit
-                        is Cell.Symbol -> {
-                            visitedNumbers[Pair(row, column)] = true
-                            return true
-                        }
                     }
 
+                    Cell.Period -> Unit
+                    is Cell.Symbol -> {
+                        visitedNumbers[Pair(row, column)] = true
+                        return true
+                    }
                 }
             }
 
@@ -147,21 +143,18 @@ data object Day3 : Day<List<Day3.Input>> {
         }
 
         fun findGearRatio(row: Int, column: Int): Int {
-            val rows = ((row - 1)..(row + 1)).filter { it in input.indices }
-            val columns = ((column - 1)..(column + 1)).filter { it in input[0].row.indices }
             val foundNumbers = mutableSetOf<Triple<Int, IntRange, Int>>()
-            rows.forEach Row@{ r ->
-                columns.forEach Column@{ c ->
-                    if (r == row && c == column) {
-                        return@Column
-                    }
-                    val number = numberRanges.find { r == it.first && c in it.second } ?: return@Column
-                    if (number !in foundNumbers) {
-                        foundNumbers.add(number)
-                    }
-
+            getAdjacentCells(input.map { it.row }, row, column).forEach { (r, c) ->
+                if (r == row && c == column) {
+                    return@forEach
                 }
+                val number = numberRanges.find { r == it.first && c in it.second } ?: return@forEach
+                if (number !in foundNumbers) {
+                    foundNumbers.add(number)
+                }
+
             }
+
             return when {
                 foundNumbers.size == 2 -> foundNumbers.fold(1) { acc, number -> acc * number.third }
                 else -> 0
@@ -176,7 +169,8 @@ data object Day3 : Day<List<Day3.Input>> {
                 } else {
                     null
                 }
-            }}
+            }
+        }
     }
 
 }
