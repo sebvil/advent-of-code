@@ -30,10 +30,10 @@ data object Day1 : Day<List<Day1.Input>> {
         return file.map { line ->
             instanceFromRegex(
                 text = line,
-                regex = regex(Regex(pattern = "(.*)"))
-                {
-                    regex(Regex(pattern = "(?=(${digits.joinToString("|")}))")) forGroup 0
-                })
+                pattern = "(.*)"
+            ) {
+                regex(pattern = "(?=(${digits.joinToString("|")}))") forGroup 0
+            }
         }
     }
 

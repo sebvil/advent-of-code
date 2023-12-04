@@ -4,7 +4,7 @@ import utils.*
 
 data object Day1 : Day<List<Day1.Input>> {
 
-    data class Input(val calories: List<Int>) // TODO()
+    data class Input(val calories: List<Int>)
 
     override val day: Int = 1
     override val part1TestInput: String = """
@@ -24,12 +24,12 @@ data object Day1 : Day<List<Day1.Input>> {
         10000
     """.trimIndent()
     override val part2TestInput: String = part1TestInput
-    override val part1Expected: Number = 24000 // TODO
-    override val part2Expected: Number = 45000 // TODO
+    override val part1Expected: Number = 24000
+    override val part2Expected: Number = 45000
 
     override fun parseFile(file: List<String>): List<Input> {
-        return instancesFromRegex(Input::class, text = file.joinToString(), regex = regex(Regex("(.*?, ,| .+)")) {
-            regex(Regex("([0-9]+)")) forGroup 0
+        return instancesFromRegex(Input::class, text = file.joinToString(), regex = regex(pattern = "(.*?, ,| .+)") {
+            regex(pattern = "([0-9]+)") forGroup 0
         })
     }
 

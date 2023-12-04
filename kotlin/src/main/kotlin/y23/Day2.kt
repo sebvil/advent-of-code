@@ -45,10 +45,10 @@ data object Day2 : Day<List<Day2.Input>> {
         return file.map { line ->
             instanceFromRegex(
                 text = line,
-                regex = Regex(pattern = "Game ([0-9]*): (.*)")
+                pattern = "Game ([0-9]*): (.*)"
             ) {
-                regex(regex = Regex(pattern = "(.*?;|.+)")) {
-                    regex(Regex(pattern = "([0-9]*) (red|green|blue)")) forGroup 0
+                regex(pattern = "(.*?;|.+)") {
+                    regex(pattern = "([0-9]*) (red|green|blue)") forGroup 0
                 } forGroup 1
             }
 

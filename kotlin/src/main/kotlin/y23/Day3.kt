@@ -129,7 +129,7 @@ data object Day3 : Day<List<Day3.Input>> {
             row.row.filterIndexed { col, cell -> Pair(rowIdx, col) in validIndices || cell !is Cell.Number }
         }.map { it.joinToString("") { cell -> cell.asString() } }
         return rowsWithValidNumbers.flatMap {
-            instancesFromRegex(Int::class, it, regex(Regex("([0-9]+)")))
+            instancesFromRegex(Int::class, it, regex(pattern = "([0-9]+)"))
         }
     }
 

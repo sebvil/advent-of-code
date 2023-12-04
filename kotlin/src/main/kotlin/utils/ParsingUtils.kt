@@ -1,5 +1,6 @@
 package utils
 
+import org.intellij.lang.annotations.Language
 import kotlin.enums.enumEntries
 import kotlin.reflect.KClass
 import kotlin.reflect.full.hasAnnotation
@@ -21,22 +22,28 @@ annotation class RegexParsable
 
 data class RegexMatcher(val regex: Regex, val subMatchers: Map<Int, RegexMatcher>) {
 
-    class Builder(private val regex: Regex) {
+    class Builder(@Language("RegExp") private val regex: String) {
         private var subMatchers: MutableMap<Int, RegexMatcher> = mutableMapOf()
 
         infix fun RegexMatcher.forGroup(index: Int) {
             this@Builder.subMatchers[index] = this
         }
 
-        fun build(): RegexMatcher = RegexMatcher(regex = regex, subMatchers = subMatchers.toMap())
+        fun build(): RegexMatcher = RegexMatcher(regex = Regex(regex), subMatchers = subMatchers.toMap())
 
     }
 }
 
-fun regex(regex: Regex, buildAction: RegexMatcher.Builder.() -> Unit = {}): RegexMatcher {
-    return RegexMatcher.Builder(regex).apply(buildAction).build()
+fun regex(@Language("RegExp") pattern: String, buildAction: RegexMatcher.Builder.() -> Unit = {}): RegexMatcher {
+    return RegexMatcher.Builder(pattern).apply(buildAction).build()
 }
 
+fun <T : Any> instancesFromRegex(
+    clazz: KClass<T>,
+    text: String,
+    @Language("RegExp") pattern: String,
+    buildAction: RegexMatcher.Builder.() -> Unit = {}
+) = instancesFromRegex(clazz, text, regex(pattern, buildAction))
 
 @Suppress("UNCHECKED_CAST")
 fun <T : Any> instancesFromRegex(
@@ -45,14 +52,16 @@ fun <T : Any> instancesFromRegex(
     regex: RegexMatcher,
 ): List<T> {
     when (clazz) {
-        Int::class ->  return regex.regex.findAll(text)
+        Int::class -> return regex.regex.findAll(text)
             .flatMap {
                 it.groupValues.subList(1, it.groupValues.size)
             }.map {
                 it.toInt() as T
             }.toList()
+
         String::class -> return regex.regex.findAll(text)
             .flatMap { it.groupValues.subList(1, it.groupValues.size) }.map { it as T }.toList()
+
         Boolean::class -> return listOf(text.toBoolean() as T)
     }
     val constructor = clazz.primaryConstructor!!
@@ -93,8 +102,8 @@ inline fun <reified T : Any> instanceFromRegex(
 
 inline fun <reified T : Any> instanceFromRegex(
     text: String,
-    regex: Regex,
+    @Language("RegExp") pattern: String,
     noinline buildAction: RegexMatcher.Builder.() -> Unit = {}
 ): T {
-    return instancesFromRegex(T::class, text, regex(regex, buildAction)).first()
+    return instancesFromRegex(T::class, text, regex(pattern, buildAction)).first()
 }
