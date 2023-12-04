@@ -22,10 +22,9 @@ data object Day${DAY_NUM} : Day<List<Day${DAY_NUM}.Input>> {
         return file.map { line ->
             instanceFromRegex(
                 text = line,
-                regex = regex(Regex(pattern = "(.*)"))
-                {
+                pattern = "(.*)") {
                    // TODO
-                })
+                }
         }
     }
 

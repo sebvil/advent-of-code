@@ -18,7 +18,7 @@ fun <T : Enum<T>> enumFromString(clazz: KClass<T>, text: String): T {
     return clazz.java.enumConstants.find { it.name.lowercase() == text.lowercase() }!!
 }
 
-annotation class RegexParsable
+interface RegexParsable
 
 data class RegexMatcher(val regex: Regex, val subMatchers: Map<Int, RegexMatcher>) {
 
@@ -45,7 +45,7 @@ fun <T : Any> instancesFromRegex(
     buildAction: RegexMatcher.Builder.() -> Unit = {}
 ) = instancesFromRegex(clazz, text, regex(pattern, buildAction))
 
-@Suppress("UNCHECKED_CAST")
+@Suppress("UNCHECKED_CAST", "IMPLICIT_CAST_TO_ANY")
 fun <T : Any> instancesFromRegex(
     clazz: KClass<T>,
     text: String,
@@ -64,6 +64,14 @@ fun <T : Any> instancesFromRegex(
 
         Boolean::class -> return listOf(text.toBoolean() as T)
     }
+    when {
+        clazz.isInstance(Enum::class) -> return regex.regex.findAll(text)
+            .flatMap {
+                it.groupValues.subList(1, it.groupValues.size)
+            }.map {
+                enumFromString(clazz.alsoPrint() as KClass<out Enum<*>>, it) as T
+            }.toList()
+    }
     val constructor = clazz.primaryConstructor!!
     val typeTransform = { idx: Int, match: String ->
         val param = constructor.parameters[idx]
@@ -79,8 +87,8 @@ fun <T : Any> instancesFromRegex(
                     instancesFromRegex(listType, match, regex.subMatchers[idx]!!)
                 }
 
-                type.hasAnnotation<RegexParsable>() -> {
-                    instanceFromRegex(match, regex.subMatchers[idx]!!)
+                type.isSubtypeOf(RegexParsable::class.starProjectedType) -> {
+                    instancesFromRegex(erasure as KClass<RegexParsable>, match, regex.subMatchers[idx]!!).first()
                 }
 
                 else -> error("Not supported: $type")
