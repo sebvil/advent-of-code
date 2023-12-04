@@ -15,3 +15,4 @@ fun getAdjacentCells(grid: Grid<*>, row: Int, column: Int, includeDiagonals: Boo
         }
     }
 }
+

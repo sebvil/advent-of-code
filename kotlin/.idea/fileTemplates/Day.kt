@@ -1,3 +1,7 @@
+#if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME}
+
+#end
+#parse("File Header.java")
 import utils.*
 
 data object Day${DAY_NUM} : Day<List<Day${DAY_NUM}.Input>> {
