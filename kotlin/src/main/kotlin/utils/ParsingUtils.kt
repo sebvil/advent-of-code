@@ -59,6 +59,13 @@ fun <T : Any> instancesFromRegex(
                 it.toInt() as T
             }.toList()
 
+        Long::class -> return regex.regex.findAll(text)
+            .flatMap {
+                it.groupValues.subList(1, it.groupValues.size)
+            }.map {
+                it.toLong() as T
+            }.toList()
+
         String::class -> return regex.regex.findAll(text)
             .flatMap { it.groupValues.subList(1, it.groupValues.size) }.map { it as T }.toList()
 
@@ -78,6 +85,7 @@ fun <T : Any> instancesFromRegex(
         val type = param.type
         when (val erasure = type.jvmErasure) {
             Int::class -> match.toInt()
+            Long::class -> match.toLong()
             Boolean::class -> match.toBoolean()
             String::class -> match
             else -> when {
