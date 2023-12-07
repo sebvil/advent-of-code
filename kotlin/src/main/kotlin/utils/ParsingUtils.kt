@@ -51,6 +51,7 @@ fun <T : Any> instancesFromRegex(
     text: String,
     regex: RegexMatcher,
 ): List<T> {
+//    println("$clazz, $text, ${regex.regex.pattern}")
     when (clazz) {
         Int::class -> return regex.regex.findAll(text)
             .flatMap {
