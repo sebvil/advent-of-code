@@ -20,6 +20,7 @@ interface BaseDay<Input> {
         check(result == part1Expected) {
             "Part 1 failed. Got $result, expected: $part1Expected"
         }
+        println("Part 1 test succeeded")
     }
 
     fun checkPart2() {
@@ -27,6 +28,8 @@ interface BaseDay<Input> {
         check(result == part2Expected) {
             "Part 2 failed. Got $result, expected: $part2Expected"
         }
+        println("Part 2 test succeeded")
+
     }
 
     fun part1(): Number = part1(input)

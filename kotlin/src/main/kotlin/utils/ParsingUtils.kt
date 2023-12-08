@@ -73,11 +73,11 @@ fun <T : Any> instancesFromRegex(
         Boolean::class -> return listOf(text.toBoolean() as T)
     }
     when {
-        clazz.isInstance(Enum::class) -> return regex.regex.findAll(text)
+        clazz.starProjectedType.isSubtypeOf(Enum::class.starProjectedType) -> return regex.regex.findAll(text)
             .flatMap {
                 it.groupValues.subList(1, it.groupValues.size)
             }.map {
-                enumFromString(clazz.alsoPrint() as KClass<out Enum<*>>, it) as T
+                enumFromString(clazz as KClass<out Enum<*>>, it) as T
             }.toList()
     }
     val constructor = clazz.primaryConstructor!!
