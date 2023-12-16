@@ -3,6 +3,7 @@ package utils
 typealias Grid<T> = List<List<T>>
 
 data class Cell(val row: Int, val column: Int)
+data class LongCell(val row: Long, val column: Long)
 
 fun getAdjacentCells(grid: Grid<*>, row: Int, column: Int, includeDiagonals: Boolean = true): List<Cell> {
     return ((row - 1)..(row + 1)).filter { it in grid.indices }.flatMap { r ->

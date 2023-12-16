@@ -183,12 +183,3 @@ data object Day10 : Day<List<Day10.PreProcessed>> {
     }
 
 }
-
-/*
-.F----7F-7
-.|F--7||FJ
-|.|.|.LJ|7
-L-J
-
-
- */
