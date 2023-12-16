@@ -16,3 +16,6 @@ fun getAdjacentCells(grid: Grid<*>, row: Int, column: Int, includeDiagonals: Boo
     }
 }
 
+fun getAdjacentCells(grid: Grid<*>, cell: Cell, includeDiagonals: Boolean = true): List<Cell> {
+    return getAdjacentCells(grid, cell.row, cell.column, includeDiagonals)
+}
