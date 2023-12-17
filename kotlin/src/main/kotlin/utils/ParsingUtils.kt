@@ -3,6 +3,7 @@ package utils
 import org.intellij.lang.annotations.Language
 import sun.security.util.Password
 import y23.Day11
+import y23.Day13
 import kotlin.enums.enumEntries
 import kotlin.reflect.KClass
 import kotlin.reflect.full.hasAnnotation
@@ -34,6 +35,7 @@ interface ParsableEnum<T: ParsableEnum<T>> {
         fun <P: ParsableEnum<P>> entries(clazz: KClass<P>): List<P> {
             return when (clazz) {
                 Day11.SpaceCell::class -> Day11.SpaceCell.entries() as List<P>
+//                Day13.Pattern::class -> Day13.Pattern.entries() as List<P>
                 else -> error("Class not found")
             }
         }

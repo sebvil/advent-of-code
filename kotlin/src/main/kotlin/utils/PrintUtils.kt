@@ -46,9 +46,9 @@ fun Any.prettyPrint(): String {
  */
 fun Any?.println() = println(this)
 
-fun <T> T.alsoPrint(pretty: Boolean = true, transform: (T) -> String = { it.toString() }) = also {
+fun <T> T.alsoPrint(pretty: Boolean = true, transform: (T) -> Any? = { it }) = also {
     if (pretty) {
-        transform(it).prettyPrint().println()
+        transform(it).toString().prettyPrint().println()
     } else {
         transform(it).println()
     }

@@ -20,3 +20,11 @@ fun getAdjacentCells(grid: Grid<*>, row: Int, column: Int, includeDiagonals: Boo
 fun getAdjacentCells(grid: Grid<*>, cell: Cell, includeDiagonals: Boolean = true): List<Cell> {
     return getAdjacentCells(grid, cell.row, cell.column, includeDiagonals)
 }
+
+fun <T> Grid<T>.transpose(): Grid<T> {
+    return get(0).indices.map { col ->
+        indices.map { row ->
+            get(row)[col]
+        }
+    }
+}
