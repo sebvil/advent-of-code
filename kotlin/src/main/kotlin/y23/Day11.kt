@@ -41,7 +41,7 @@ data object Day11 : Day<Day11.Input> {
                 instancesFromRegex(
                     clazz = SpaceCell::class,
                     text = line,
-                    pattern = "([\\.#])"
+                    pattern = "([.#])"
                 )
             }
         )
