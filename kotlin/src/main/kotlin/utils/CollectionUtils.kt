@@ -28,3 +28,19 @@ fun <T> Grid<T>.transpose(): Grid<T> {
         }
     }
 }
+
+fun <T> Grid<T>.rotateRight(): Grid<T> {
+    return get(0).indices.map { col ->
+        indices.map { row ->
+            get(size - row - 1)[col]
+        }
+    }
+}
+
+fun <T> Grid<T>.rotateLeft(): Grid<T> {
+    return get(0).indices.map { col ->
+        indices.map { row ->
+            get(row)[get(0).size - col - 1]
+        }
+    }
+}

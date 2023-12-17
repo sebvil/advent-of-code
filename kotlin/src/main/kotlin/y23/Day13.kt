@@ -4,15 +4,6 @@ import utils.*
 
 data object Day13 : Day<List<Day13.Input>> {
 
-//    sealed class Pattern(override val stringValue: String) : ParsableEnum<Pattern> {
-//
-//        data object Ash : Pattern(".")
-//        data object Rock : Pattern("#")
-//
-//        companion object {
-//            fun entries(): List<Pattern> = listOf(Ash, Rock)
-//        }
-//    }
 
     data class Input(val patterns: List<List<String>>) // TODO()
 
