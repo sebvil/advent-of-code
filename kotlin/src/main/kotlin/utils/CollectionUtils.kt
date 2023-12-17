@@ -2,6 +2,15 @@ package utils
 
 typealias Grid<T> = List<List<T>>
 
+
+operator fun Grid<*>.contains(cell: Cell): Boolean {
+    return cell.row in indices && cell.column in get(0).indices
+}
+
+operator fun <T> Grid<T>.get(cell: Cell): T {
+    return get(cell.row)[cell.column]
+}
+
 data class Cell(val row: Int, val column: Int)
 data class LongCell(val row: Long, val column: Long)
 
